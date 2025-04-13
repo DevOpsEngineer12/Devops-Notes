@@ -265,3 +265,28 @@ spec:
         type: Utilization
         averageUtilization: 70
 ```
+
+## 14. ReplicaSet
+
+**➤ Use:** Ensures a specified number of pod replicas are running. Often managed by a Deployment.
+
+➤ Example:
+```yaml
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: frontend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      tier: frontend
+  template:
+    metadata:
+      labels:
+        tier: frontend
+    spec:
+      containers:
+        - name: nginx
+          image: nginx
+```
